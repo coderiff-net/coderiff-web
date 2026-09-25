@@ -25,7 +25,7 @@ const {
   isDark = false,
   classes = {},
   bg = await Astro.slots.render('bg'),
-} = Astro.props;
+} = Astro.props as Props;
 
 const commandText = commands.map((command) => (typeof command === 'string' ? command : command.command)).join('\n');
 
@@ -104,7 +104,7 @@ const commandHtml = commands
   {note && <p class="mt-4 text-center text-sm text-muted" set:html={note} />}
 </WidgetWrapper>
 
-<script>
+<script lang="ts">
   class AwCopy extends HTMLElement {
     connectedCallback() {
       const button = this.querySelector<HTMLButtonElement>('[data-aw-copy-button]');
