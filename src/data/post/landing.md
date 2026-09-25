@@ -68,27 +68,27 @@ Landing pages differ by the action they ask for. Six types cover almost every ca
 
 ### Lead generation landing pages
 
-The page trades something useful (a guide, a template, an audit, a webinar seat, a free trial) for an email address and sometimes a name or a company. The offer must be worth the address; the form must be as short as the offer allows; the proof and the FAQ carry the objections. The confirmation email is part of the page: what arrives, when, and what comes next. [Example: lead generation](/landing/lead-generation).
+The page trades something useful (a guide, a template, an audit, a webinar seat, a free trial) for an email address and sometimes a name or a company. The offer must be worth the address; the form must be as short as the offer allows; the proof and the FAQ carry the objections. The confirmation email is part of the page: what arrives, when, and what comes next. [Example: lead generation](landing/lead-generation).
 
 ### Sales landing pages
 
-The page sells directly, usually something considered or expensive: a course, a service, a product with a story. It is long because it answers every question before it is asked: the promise, what is included, who it is for, proof, the price, the guarantee. Length is not the goal; completeness is. [Example: sales page](/landing/sales).
+The page sells directly, usually something considered or expensive: a course, a service, a product with a story. It is long because it answers every question before it is asked: the promise, what is included, who it is for, proof, the price, the guarantee. Length is not the goal; completeness is. [Example: sales page](landing/sales).
 
 ### Click-through landing pages
 
-The page is a bridge. It confirms the promise of the ad, shows what is on the other side and pushes the visitor to one destination (a checkout, a signup, an app store listing) with one repeated button. No form, no price list, no full feature comparison: those belong on the destination. [Example: click-through](/landing/click-through).
+The page is a bridge. It confirms the promise of the ad, shows what is on the other side and pushes the visitor to one destination (a checkout, a signup, an app store listing) with one repeated button. No form, no price list, no full feature comparison: those belong on the destination. [Example: click-through](landing/click-through).
 
 ### Product detail landing pages
 
-The page presents one product at three depths: an overview for the curious, features for the interested, specifications for the decided. Real images from several angles, a video if the product moves, the price on the page. [Example: product details](/landing/product).
+The page presents one product at three depths: an overview for the curious, features for the interested, specifications for the decided. Real images from several angles, a video if the product moves, the price on the page. [Example: product details](landing/product).
 
 ### Pre-launch and waitlist landing pages
 
-The page collects interest before there is a product to sell. The form comes early; a visible date, a roadmap and one real teaser follow for the visitors who need more before they type. The emails between signup and launch are what keep the list alive. [Example: pre-launch](/landing/pre-launch).
+The page collects interest before there is a product to sell. The form comes early; a visible date, a roadmap and one real teaser follow for the visitors who need more before they type. The emails between signup and launch are what keep the list alive. [Example: pre-launch](landing/pre-launch).
 
 ### Subscription landing pages
 
-The page sells the second month, not the first. Trust signals up front, plans compared side by side, the practices that reduce churn (a fast first win, a predictable rhythm, visible new value, an easy exit), and a cancellation policy stated plainly. [Example: subscription](/landing/subscription).
+The page sells the second month, not the first. Trust signals up front, plans compared side by side, the practices that reduce churn (a fast first win, a predictable rhythm, visible new value, an easy exit), and a cancellation policy stated plainly. [Example: subscription](landing/subscription).
 
 ## Anatomy of a high-converting landing page
 
@@ -253,4 +253,4 @@ After launch: review the numbers weekly, the page quarterly, and retire it when 
 
 ## Six complete examples you can copy
 
-The six pages linked above are full, working landing pages, one per type, built with the free [AstroWind](/get-started-website-with-astro-tailwind-css) template for Astro and Tailwind CSS. Each one follows the structure in this guide and explains, section by section, why that section is there. Copy the one closest to your goal, keep the structure, and replace the words, the images and the proof with your own.
+The six pages linked above are full, working landing pages, one per type, built with the free [AstroWind](get-started-website-with-astro-tailwind-css) template for Astro and Tailwind CSS. Each one follows the structure in this guide and explains, section by section, why that section is there. Copy the one closest to your goal, keep the structure, and replace the words, the images and the proof with your own.

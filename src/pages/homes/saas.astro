@@ -12,6 +12,7 @@ import Pricing from '~/components/widgets/Pricing.astro';
 import { headerData } from '~/navigation';
 import FAQs from '~/components/widgets/FAQs.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'SaaS Landing Page',
@@ -365,7 +366,7 @@ const metadata = {
     subtitle="Have questions? Feel free to contact us using the form below. We're here to help!"
     callToAction={{
       text: 'Contact us',
-      href: '/',
+      href: getPermalink('/'),
     }}
     items={[
       {

@@ -11,7 +11,7 @@ tags:
   - theme
 ---
 
-Customizing the AstroWind template to your brand is a handful of files, and none of them is inside a component you would rather not touch. The demo is blue, uses Inter and says "AstroWind" everywhere; this guide goes through what to change, in the order most projects need it. If you have not created the project yet, start with the [getting started guide](/get-started-website-with-astro-tailwind-css).
+Customizing the AstroWind template to your brand is a handful of files, and none of them is inside a component you would rather not touch. The demo is blue, uses Inter and says "AstroWind" everywhere; this guide goes through what to change, in the order most projects need it. If you have not created the project yet, start with the [getting started guide](get-started-website-with-astro-tailwind-css).
 
 **What you'll change**
 
@@ -118,4 +118,4 @@ Utilities of your own belong in `tailwind.css` as `@utility` blocks, next to the
 
 ## Before you ship
 
-Run `npm run check`, then look at every page in light and dark mode, on a phone and on a desktop. Colors that work on the home page can fail on a [landing page](/landing) with a colored band or in a dark code block. Step-by-step versions of most of the tasks above live in `.agents/skills/`, written so that an AI coding assistant can carry them out and short enough to follow yourself; if you want to know why the files are wired the way they are, read [how the template works under the hood](/astrowind-template-in-depth).
+Run `npm run check`, then look at every page in light and dark mode, on a phone and on a desktop. Colors that work on the home page can fail on a [landing page](landing) with a colored band or in a dark code block. Step-by-step versions of most of the tasks above live in `.agents/skills/`, written so that an AI coding assistant can carry them out and short enough to follow yourself; if you want to know why the files are wired the way they are, read [how the template works under the hood](astrowind-template-in-depth).

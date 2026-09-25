@@ -7,6 +7,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Pricing',
@@ -121,14 +122,22 @@ const metadata = {
     subtitle="The full feature matrix. Highlighted column: the plan most teams pick."
     firstColumnLabel="Features"
     columns={[
-      { title: 'Basic', subtitle: '$29 / month', callToAction: { text: 'Get started', href: '/contact' } },
+      {
+        title: 'Basic',
+        subtitle: '$29 / month',
+        callToAction: { text: 'Get started', href: getPermalink('/contact') },
+      },
       {
         title: 'Standard',
         subtitle: '$69 / month',
         highlight: true,
-        callToAction: { text: 'Get started', href: '/contact' },
+        callToAction: { text: 'Get started', href: getPermalink('/contact') },
       },
-      { title: 'Premium', subtitle: '$199 / month', callToAction: { text: 'Talk to us', href: '/contact' } },
+      {
+        title: 'Premium',
+        subtitle: '$199 / month',
+        callToAction: { text: 'Talk to us', href: getPermalink('/contact') },
+      },
     ]}
     rows={[
       { group: 'Core', label: 'Pages', values: ['Unlimited', 'Unlimited', 'Unlimited'] },
@@ -268,7 +277,7 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Get started now',
-        href: '/',
+        href: getPermalink('/'),
       },
     ]}
   />

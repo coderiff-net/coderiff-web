@@ -11,7 +11,7 @@ tags:
   - tailwind css
 ---
 
-AstroWind is a free, open-source template for [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/). It gives you a complete marketing site with a blog, dark mode, optimized images and SEO metadata, built from typed components you compose in pages. This guide takes you from an empty folder to a deployed site, step by step. If you would rather not do the steps yourself, the template is prepared for AI coding assistants: [hand the work to Claude Code, Cursor or a similar tool](/build-websites-with-ai) and come back here when you want to know what it did.
+AstroWind is a free, open-source template for [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/). It gives you a complete marketing site with a blog, dark mode, optimized images and SEO metadata, built from typed components you compose in pages. This guide takes you from an empty folder to a deployed site, step by step. If you would rather not do the steps yourself, the template is prepared for AI coding assistants: [hand the work to Claude Code, Cursor or a similar tool](build-websites-with-ai) and come back here when you want to know what it did.
 
 **What you'll build**
 
@@ -66,7 +66,7 @@ The template's own machinery lives in `vendor/integration/`. You do not need to 
 
 **`src/navigation.ts`.** Replace the demo menus with your pages. Each entry is `{ text, href }`; use `getPermalink('/about')` for internal links so the base path is respected if you ever deploy under a sub-folder.
 
-**`src/components/CustomStyles.astro`.** Your brand colors: `--aw-color-primary`, `--aw-color-secondary` and `--aw-color-accent`, plus the text and background colors, once for light and once for dark. Everything in the template reads these variables. Fonts are declared in `astro.config.ts` (the `fonts` entry, served by Astro's Fonts API) and mapped to the `--aw-font-*` variables in `CustomStyles.astro`. The [customization guide](/how-to-customize-astrowind-to-your-brand) covers all of this in depth.
+**`src/components/CustomStyles.astro`.** Your brand colors: `--aw-color-primary`, `--aw-color-secondary` and `--aw-color-accent`, plus the text and background colors, once for light and once for dark. Everything in the template reads these variables. Fonts are declared in `astro.config.ts` (the `fonts` entry, served by Astro's Fonts API) and mapped to the `--aw-font-*` variables in `CustomStyles.astro`. The [customization guide](how-to-customize-astrowind-to-your-brand) covers all of this in depth.
 
 ## Edit the home page
 
@@ -107,7 +107,7 @@ const metadata = {
 </Layout>
 ```
 
-Most section widgets share the same base props: `title`, `subtitle`, `tagline`, an `id` for anchors and a `bg` slot for a custom background. Icons come from the [Tabler](https://tabler.io/icons) set through `astro-icon`. A catalog of the section widgets, their main props and the demo page where each is used is in `.agents/skills/use-widgets.md`; the landing pages under `src/pages/landing/` show them combined into complete pages, and the [landing page guide](/landing) explains the thinking behind them.
+Most section widgets share the same base props: `title`, `subtitle`, `tagline`, an `id` for anchors and a `bg` slot for a custom background. Icons come from the [Tabler](https://tabler.io/icons) set through `astro-icon`. A catalog of the section widgets, their main props and the demo page where each is used is in `.agents/skills/use-widgets.md`; the landing pages under `src/pages/landing/` show them combined into complete pages, and the [landing page guide](landing) explains the thinking behind them.
 
 ## Publish your first post
 
@@ -130,7 +130,7 @@ Write in Markdown. Headings, lists, tables, code blocks and images all work;
 use the `.mdx` extension to embed components.
 ```
 
-The post appears at `/hello-world` (the `permalink` setting in `config.yaml` decides the pattern), in the blog list, in its category and tag pages, in the RSS feed and in the sitemap, with its Open Graph tags and structured data generated for you. `draft: true` keeps a post out of the build while you work on it; `updateDate` marks a revision, shown under the title and sent to search engines. The [Markdown demo post](/markdown-elements-demo-post) shows how every element renders.
+The post appears at `/hello-world` (the `permalink` setting in `config.yaml` decides the pattern), in the blog list, in its category and tag pages, in the RSS feed and in the sitemap, with its Open Graph tags and structured data generated for you. `draft: true` keeps a post out of the build while you work on it; `updateDate` marks a revision, shown under the title and sent to search engines. The [Markdown demo post](markdown-elements-demo-post) shows how every element renders.
 
 ## Check and build
 
@@ -152,7 +152,7 @@ After the first deploy, set `site.site` in `config.yaml` to the real URL if you 
 
 ## Next steps
 
-- [Customize the template to your brand](/how-to-customize-astrowind-to-your-brand): colors, fonts, logo, favicons.
-- [How the template works under the hood](/astrowind-template-in-depth): the integration, permalinks, images and metadata.
-- [Build a landing page that converts](/landing): the guide behind the six landing page examples.
-- Working with an AI coding assistant? The repository ships an `AGENTS.md` and step-by-step skills in `.agents/skills/` so the assistant follows the template's conventions. [Here is how to get the most out of it](/build-websites-with-ai).
+- [Customize the template to your brand](how-to-customize-astrowind-to-your-brand): colors, fonts, logo, favicons.
+- [How the template works under the hood](astrowind-template-in-depth): the integration, permalinks, images and metadata.
+- [Build a landing page that converts](landing): the guide behind the six landing page examples.
+- Working with an AI coding assistant? The repository ships an `AGENTS.md` and step-by-step skills in `.agents/skills/` so the assistant follows the template's conventions. [Here is how to get the most out of it](build-websites-with-ai).
