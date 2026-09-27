@@ -4,7 +4,6 @@ import Logo from '~/components/Logo.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 import Button from '~/components/ui/Button.astro';
-import SiteSearch from '~/components/common/SiteSearch.astro';
 
 import { getHomePermalink } from '~/utils/permalinks';
 import { trimSlash, getAsset } from '~/utils/permalinks';
@@ -51,22 +50,6 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 // regardless of the `trailingSlash` setting (`getPermalink()` emits `/contact/`
 // when it is enabled, while `currentPath` above never has one, see #557).
 const isActive = (href?: string) => typeof href === 'string' && `/${trimSlash(href)}` === currentPath;
-const localizeHref = (href?: string) => (Astro.currentLocale === 'es' && href?.startsWith('/#') ? `/es${href}` : href);
-const localizeText = (text?: string) => {
-  if (Astro.currentLocale !== 'es') return text;
-  return (
-    (
-      {
-        Services: 'Servicios',
-        About: 'Quiénes somos',
-        'About us': 'Quiénes somos',
-        Blog: 'Blog',
-        Contact: 'Contacto',
-      } as Record<string, string>
-    )[text ?? ''] ?? text
-  );
-};
-
 // The header is kept across view transitions (transition:persist) so its state
 // survives client-side navigations. Astro matches persisted elements by name,
 // so the name must change whenever the header content does: otherwise a page
@@ -82,7 +65,6 @@ const persistKey = `header-${Array.from(
     showToggleTheme,
     showRssFeed,
     position,
-    locale: Astro.currentLocale,
   })
 )
   .reduce((hash, char) => (hash * 31 + char.charCodeAt(0)) >>> 0, 7)
@@ -114,7 +96,7 @@ const persistKey = `header-${Array.from(
       ]}
     >
       <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
-        <a class="flex items-center" href={Astro.currentLocale === 'es' ? '/es' : getHomePermalink()}>
+        <a class="flex items-center" href={getHomePermalink()}>
           <Logo />
         </a>
         <div class="flex items-center lg:hidden">
@@ -137,7 +119,7 @@ const persistKey = `header-${Array.from(
                       type="button"
                       class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
                     >
-                      {localizeText(text)}{' '}
+                      {text}{' '}
                       <Icon
                         name="tabler:chevron-down"
                         class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden lg:inline"
@@ -151,9 +133,9 @@ const persistKey = `header-${Array.from(
                               'first:rounded-t last:rounded-b lg:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-nowrap',
                               { 'aw-link-active': isActive(href2) },
                             ]}
-                            href={localizeHref(href2)}
+                            href={href2}
                           >
-                            {localizeText(text2)}
+                            {text2}
                           </a>
                         </li>
                       ))}
@@ -165,24 +147,15 @@ const persistKey = `header-${Array.from(
                       'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap',
                       { 'aw-link-active': isActive(href) },
                     ]}
-                    href={localizeHref(href)}
+                    href={href}
                   >
-                    {localizeText(text)}
+                    {text}
                   </a>
                 )}
               </li>
             ))
           }
         </ul>
-        <SiteSearch />
-        <a
-          class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap font-semibold"
-          href={Astro.currentLocale === 'es' ? '/' : '/es'}
-          lang={Astro.currentLocale === 'es' ? 'en' : 'es'}
-          aria-label={Astro.currentLocale === 'es' ? 'Read this page in English' : 'Leer esta página en español'}
-        >
-          {Astro.currentLocale === 'es' ? 'EN' : 'ES'}
-        </a>
       </nav>
       <div
         class:list={[

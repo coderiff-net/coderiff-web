@@ -1,5 +1,6 @@
 ---
 import PageLayout from '~/layouts/PageLayout.astro';
+import SiteSearch from '~/components/common/SiteSearch.astro';
 import { getBlogPermalink } from '~/utils/permalinks';
 
 const metadata = {
@@ -17,6 +18,7 @@ const metadata = {
     <p class="mt-8 max-w-2xl text-xl leading-relaxed text-muted dark:text-slate-300">
       More than 20 years designing, building and evolving software systems, from Málaga to the world.
     </p>
+    <SiteSearch />
     <a
       class="mt-8 inline-block text-base font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
       href="#services">Explore what we do <span aria-hidden="true">↓</span></a

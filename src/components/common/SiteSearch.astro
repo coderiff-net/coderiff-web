@@ -1,7 +1,5 @@
 <div class="site-search" data-pagefind-ignore>
-  <label class="sr-only" for="site-search"
-    >{Astro.currentLocale === 'es' ? 'Buscar en todo el sitio' : 'Search the whole site'}</label
-  >
+  <label class="mb-2 block text-sm font-semibold text-heading" for="site-search">Search the whole site</label>
   {
     import.meta.env.DEV ? (
       <input
@@ -9,21 +7,13 @@
         class="dev-search"
         type="search"
         disabled
-        placeholder={Astro.currentLocale === 'es' ? 'Disponible en la vista previa' : 'Available in built preview'}
-        aria-label={
-          Astro.currentLocale === 'es'
-            ? 'La búsqueda estará disponible en la vista previa generada'
-            : 'Search is available in the built preview'
-        }
+        placeholder="Available in built preview"
+        aria-label="Search is available in the built preview"
       />
     ) : (
       <>
-        <pagefind-config bundle-path="/pagefind/" lang={Astro.currentLocale ?? 'en'} />
-        <pagefind-searchbox
-          id="site-search"
-          placeholder={Astro.currentLocale === 'es' ? 'Buscar en todo el sitio' : 'Search the whole site'}
-          show-sub-results
-        />
+        <pagefind-config bundle-path="/pagefind/" lang="en" />
+        <pagefind-searchbox id="site-search" placeholder="Search the whole site" show-sub-results />
       </>
     )
   }
@@ -34,8 +24,9 @@
 
 <style>
   .site-search {
-    width: min(18rem, 100%);
-    margin: 0.5rem 1rem;
+    width: 100%;
+    max-width: 42rem;
+    margin-top: 2rem;
   }
 
   .dev-search {
@@ -49,8 +40,8 @@
 
   @media (max-width: 1023px) {
     .site-search {
-      width: auto;
-      margin: 0.75rem 1rem;
+      width: 100%;
+      margin-top: 2rem;
     }
   }
 </style>

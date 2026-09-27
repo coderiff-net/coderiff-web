@@ -25,11 +25,10 @@ export interface Props {
 
 const { metadata = {} } = Astro.props;
 const { language, textDirection } = I18N;
-const pageLanguage = Astro.currentLocale ?? language;
 ---
 
 <!doctype html>
-<html lang={pageLanguage} dir={textDirection} class="2xl:text-[20px]">
+<html lang={language} dir={textDirection} class="2xl:text-[20px]">
   <head>
     <CommonMeta />
     <Favicons />
