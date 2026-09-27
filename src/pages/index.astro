@@ -1,6 +1,5 @@
 ---
 import PageLayout from '~/layouts/PageLayout.astro';
-import SiteSearch from '~/components/common/SiteSearch.astro';
 import { getBlogPermalink } from '~/utils/permalinks';
 
 const metadata = {
@@ -10,9 +9,6 @@ const metadata = {
 ---
 
 <PageLayout metadata={metadata}>
-  <Fragment slot="head">
-    <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />
-  </Fragment>
   <section class="mx-auto max-w-6xl px-6 pb-24 pt-24 sm:pt-36 lg:px-8">
     <p class="mb-6 text-sm font-semibold uppercase tracking-[0.2em] text-primary">Independent software engineering</p>
     <h1 class="max-w-4xl text-5xl font-bold leading-tight tracking-tight text-heading sm:text-7xl">
@@ -21,7 +17,6 @@ const metadata = {
     <p class="mt-8 max-w-2xl text-xl leading-relaxed text-muted dark:text-slate-300">
       More than 20 years designing, building and evolving software systems, from Málaga to the world.
     </p>
-    <SiteSearch />
     <a
       class="mt-8 inline-block text-base font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
       href="#services">Explore what we do <span aria-hidden="true">↓</span></a

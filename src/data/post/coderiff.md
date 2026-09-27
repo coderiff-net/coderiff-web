@@ -3,9 +3,9 @@ author: Diego Martin
 publishDate: 2026-09-25T00:00:00Z
 title: CodeRiff is officially open for business!
 excerpt: Software engineering from the Costa del Sol to anywhere in the world.
-category: Studio notes
+category: news
 tags:
-  - news
+  - business
 ---
 
 Based in Málaga, in the heart of the Costa del Sol, CodeRiff is a personal software engineering endeavour with a global outlook. In a digital world, great software doesn't need borders, we're ready to collaborate remotely with people and businesses anywhere.

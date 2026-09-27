@@ -1,0 +1,118 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import { getBlogPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'CodeRiff - sitios web pensados y hechos con cuidado',
+  description:
+    'CodeRiff diseña y desarrolla sitios web claros y rápidos para personas con algo que merece ser compartido.',
+};
+---
+
+<PageLayout metadata={metadata}>
+  <section class="mx-auto max-w-6xl px-6 pb-24 pt-24 sm:pt-36 lg:px-8">
+    <p class="mb-6 text-sm font-semibold uppercase tracking-[0.2em] text-primary">Estudio web independiente</p>
+    <h1 class="max-w-4xl text-5xl font-bold leading-tight tracking-tight text-heading sm:text-7xl">
+      Las buenas ideas merecen <span class="text-primary">un lugar mejor</span> en internet.
+    </h1>
+    <p class="mt-8 max-w-2xl text-xl leading-relaxed text-muted dark:text-slate-300">
+      Convertimos ideas con propósito en sitios web claros y rápidos. Desde el primer boceto hasta el último detalle,
+      hacemos que internet se sienta un poco más humano.
+    </p>
+    <a
+      class="mt-8 inline-block text-base font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
+      href="#servicios">Descubre lo que hacemos <span aria-hidden="true">→</span></a
+    >
+  </section>
+
+  <section
+    id="servicios"
+    class="scroll-mt-20 border-y border-gray-200 bg-gray-50 py-20 dark:border-slate-800 dark:bg-slate-900/40"
+  >
+    <div class="mx-auto max-w-6xl px-6 lg:px-8">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Servicios</p>
+      <h2 class="mt-3 max-w-2xl text-3xl font-bold tracking-tight text-heading sm:text-4xl">
+        Trabajo cuidado, hecho para durar.
+      </h2>
+      <div class="mt-12 grid gap-10 md:grid-cols-3">
+        <article>
+          <span class="text-sm text-muted">01</span><h3 class="mt-3 text-xl font-semibold text-heading">
+            Diseño web
+          </h3><p class="mt-3 leading-relaxed text-muted dark:text-slate-300">
+            Una voz visual clara y un recorrido sencillo por tu historia, pensado para las personas a las que quieres
+            llegar.
+          </p>
+        </article>
+        <article>
+          <span class="text-sm text-muted">02</span><h3 class="mt-3 text-xl font-semibold text-heading">
+            Desarrollo web
+          </h3><p class="mt-3 leading-relaxed text-muted dark:text-slate-300">
+            Sitios web rápidos y accesibles, fáciles de usar y de ampliar con el tiempo.
+          </p>
+        </article>
+        <article>
+          <span class="text-sm text-muted">03</span><h3 class="mt-3 text-xl font-semibold text-heading">
+            Mantenimiento
+          </h3><p class="mt-3 leading-relaxed text-muted dark:text-slate-300">
+            Actualizaciones cuidadas, consejos prácticos y apoyo constante mientras evolucionan tu negocio y tu web.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="scroll-mt-20 mx-auto max-w-6xl px-6 py-20 lg:px-8">
+    <div class="grid gap-8 md:grid-cols-[1fr_2fr] md:gap-16">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Quiénes somos</p>
+      <div>
+        <h2 class="text-3xl font-bold tracking-tight text-heading sm:text-4xl">
+          Una buena web debería parecerse a ti.
+        </h2><p class="mt-6 max-w-3xl text-lg leading-relaxed text-muted dark:text-slate-300">
+          CodeRiff es un pequeño estudio independiente para personas que están creando algo con propósito. Primero
+          escuchamos, colaboramos durante todo el proceso y cuidamos cada línea, diseño y detalle. Sin ruido ni
+          complejidad innecesaria: una presencia web que encaja contigo y funciona de maravilla.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section
+    id="blog"
+    class="scroll-mt-20 border-y border-gray-200 bg-gray-50 py-20 dark:border-slate-800 dark:bg-slate-900/40"
+  >
+    <div class="mx-auto max-w-6xl px-6 lg:px-8">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Del blog</p>
+      <div class="mt-6 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+        <div class="max-w-2xl">
+          <h2 class="text-3xl font-bold tracking-tight text-heading sm:text-4xl">Ideas para mejorar la web.</h2><p
+            class="mt-4 text-muted dark:text-slate-300"
+          >
+            Ideas, aprendizajes y cosas útiles que descubrimos por el camino.
+          </p>
+        </div><a
+          class="shrink-0 font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
+          href={getBlogPermalink()}>Visita el blog <span aria-hidden="true">→</span></a>
+      </div>
+      <article class="mt-10 border-t border-gray-200 pt-6 dark:border-slate-700">
+        <p class="text-sm text-muted">Una nota del estudio</p><h3 class="mt-2 text-2xl font-semibold text-heading">
+          <a class="hover:text-primary" href="/blog/landing"
+            >Una página de inicio debería facilitar el siguiente paso</a>
+        </h3><p class="mt-3 max-w-2xl leading-relaxed text-muted dark:text-slate-300">
+          Algunos principios sencillos para dar la bienvenida, contar una historia clara y ayudar a que las buenas ideas
+          encuentren a su gente.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="scroll-mt-20 mx-auto max-w-6xl px-6 py-20 lg:px-8">
+    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Contacto</p>
+    <h2 class="mt-3 max-w-2xl text-3xl font-bold tracking-tight text-heading sm:text-4xl">
+      ¿Tienes algo bueno en mente?
+    </h2>
+    <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted dark:text-slate-300">
+      Nos encantará escucharte. Cuéntanos en qué estás trabajando y adónde quieres llegar.
+    </p>
+    <p class="mt-6 text-muted dark:text-slate-300">Escríbenos y cuéntanos en qué estás trabajando.</p>
+  </section>
+</PageLayout>
