@@ -183,7 +183,7 @@ const metadata = {
     </form>
     <script>
       if (new URLSearchParams(window.location.search).get('contact') === 'sent') {
-        const form = document.querySelector('#contact-form');
+        const form = document.querySelector<HTMLFormElement>('#contact-form');
         if (form) {
           form.hidden = true;
           form.insertAdjacentHTML(
