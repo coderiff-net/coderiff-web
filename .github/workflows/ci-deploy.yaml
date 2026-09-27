@@ -48,6 +48,8 @@ jobs:
         run: npm ci
 
       - name: Build site
+        env:
+          PUBLIC_FORMSUBMIT_TOKEN: ${{ vars.PUBLIC_FORMSUBMIT_TOKEN }}
         run: npm run build
 
       - name: Upload Pages artifact
