@@ -182,13 +182,15 @@ const metadata = {
       <button type="submit" class="btn-primary w-fit">Send message</button>
     </form>
     <script>
-      if (new URLSearchParams(window.location.search).has('contact')) {
+      if (new URLSearchParams(window.location.search).get('contact') === 'sent') {
         const form = document.querySelector('#contact-form');
-        if (form)
+        if (form) {
+          form.hidden = true;
           form.insertAdjacentHTML(
             'beforebegin',
-            '<p class="mt-6 text-sm font-medium text-primary" role="status">Thanks — your message has been sent.</p>'
+            '<p class="mt-6 text-lg font-medium text-primary" role="status">Thanks, your message has been sent.</p>'
           );
+        }
       }
     </script>
   </section>
