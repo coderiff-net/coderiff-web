@@ -1,11 +1,11 @@
-import { getBlogPermalink } from './utils/permalinks';
+import { getBlogPermalink } from "./utils/permalinks";
 
 export const headerData = {
   links: [
-    { text: 'Services', href: '/#services' },
-    { text: 'About us', href: '/#about' },
-    { text: 'Blog', href: getBlogPermalink() },
-    { text: 'Contact', href: '/#contact' },
+    { text: "Services", href: "/#services" },
+    { text: "About", href: "/#about" },
+    { text: "Blog", href: getBlogPermalink() },
+    { text: "Contact", href: "/#contact" },
   ],
   actions: [],
 };
@@ -13,16 +13,16 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'Explore',
+      title: "Explore",
       links: [
-        { text: 'Services', href: '/#services' },
-        { text: 'About us', href: '/#about' },
-        { text: 'Blog', href: getBlogPermalink() },
-        { text: 'Contact', href: '/#contact' },
+        { text: "Services", href: "/#services" },
+        { text: "About", href: "/#about" },
+        { text: "Blog", href: getBlogPermalink() },
+        { text: "Contact", href: "/#contact" },
       ],
     },
   ],
   secondaryLinks: [],
   socialLinks: [],
-  footNote: '© CodeRiff. Made with care.',
+  footNote: "© coderiff. Made with care.",
 };
