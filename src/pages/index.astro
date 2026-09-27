@@ -133,29 +133,60 @@ const metadata = {
     <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted dark:text-slate-300">
       Have an idea, an existing system that needs attention, or an engineering challenge you'd like to discuss?
     </p>
-    <form id="contact-form" method="POST" action={`https://formsubmit.co/${import.meta.env.PUBLIC_FORMSUBMIT_TOKEN ?? ''}`} class="mt-8 grid max-w-xl gap-4">
+    <form
+      id="contact-form"
+      method="POST"
+      action={`https://formsubmit.co/${import.meta.env.PUBLIC_FORMSUBMIT_TOKEN ?? ''}`}
+      class="mt-8 grid max-w-xl gap-4"
+    >
       <input type="hidden" name="_subject" value="New CodeRiff website enquiry" />
       <input type="hidden" name="_template" value="table" />
       <input type="hidden" name="_next" value="https://coderiff.net/?contact=sent#contact" />
       <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
       <label class="grid gap-2 text-sm font-medium text-heading" for="contact-subject">
         Subject
-        <input id="contact-subject" name="subject" required maxlength="160" autocomplete="off" class="rounded-lg border border-gray-300 bg-white px-4 py-3 font-normal dark:border-gray-700 dark:bg-slate-900" />
+        <input
+          id="contact-subject"
+          name="subject"
+          required
+          maxlength="160"
+          autocomplete="off"
+          class="rounded-lg border border-gray-300 bg-white px-4 py-3 font-normal dark:border-gray-700 dark:bg-slate-900"
+        />
       </label>
       <label class="grid gap-2 text-sm font-medium text-heading" for="contact-email">
         Your email
-        <input id="contact-email" name="email" type="email" required maxlength="254" autocomplete="email" class="rounded-lg border border-gray-300 bg-white px-4 py-3 font-normal dark:border-gray-700 dark:bg-slate-900" />
+        <input
+          id="contact-email"
+          name="email"
+          type="email"
+          required
+          maxlength="254"
+          autocomplete="email"
+          class="rounded-lg border border-gray-300 bg-white px-4 py-3 font-normal dark:border-gray-700 dark:bg-slate-900"
+        />
       </label>
       <label class="grid gap-2 text-sm font-medium text-heading" for="contact-message">
         Message
-        <textarea id="contact-message" name="message" required maxlength="5000" rows="5" class="rounded-lg border border-gray-300 bg-white px-4 py-3 font-normal dark:border-gray-700 dark:bg-slate-900"></textarea>
+        <textarea
+          id="contact-message"
+          name="message"
+          required
+          maxlength="5000"
+          rows="5"
+          class="rounded-lg border border-gray-300 bg-white px-4 py-3 font-normal dark:border-gray-700 dark:bg-slate-900"
+        ></textarea>
       </label>
       <button type="submit" class="btn-primary w-fit">Send message</button>
     </form>
     <script>
       if (new URLSearchParams(window.location.search).has('contact')) {
         const form = document.querySelector('#contact-form');
-        if (form) form.insertAdjacentHTML('beforebegin', '<p class="mt-6 text-sm font-medium text-primary" role="status">Thanks — your message has been sent.</p>');
+        if (form)
+          form.insertAdjacentHTML(
+            'beforebegin',
+            '<p class="mt-6 text-sm font-medium text-primary" role="status">Thanks — your message has been sent.</p>'
+          );
       }
     </script>
   </section>
