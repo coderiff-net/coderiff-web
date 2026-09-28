@@ -1,6 +1,6 @@
 ---
 author: Diego Martin
-publishDate: 2026-09-25T00:00:00Z
+publishDate: 2020-01-01T00:00:00Z
 title: coderiff is officially open for business!
 excerpt: Software engineering from the Costa del Sol to anywhere in the world.
 category: news

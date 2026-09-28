@@ -1,8 +1,8 @@
 ---
-publishDate: 2026-09-27T00:00:00Z
+publishDate: 2024-04-03T00:00:00Z
 author: Diego Martin
-title: 'Separate AWS environments with Organizations'
-excerpt: 'A practical look at managing AWS accounts for test and production, with centralized governance and controlled cross-account access.'
+title: "Separate AWS environments with Organizations"
+excerpt: "A practical look at managing AWS accounts for test and production, with centralized governance and controlled cross-account access."
 category: tutorials
 tags:
   - aws
