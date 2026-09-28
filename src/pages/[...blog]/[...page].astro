@@ -36,13 +36,10 @@ const breadcrumbs = [
 
 const metadata = {
   title: `Blog${currentPage > 1 ? ` - Page ${currentPage}` : ''}`,
-  description: 'Notes, ideas and useful things from the CodeRiff studio.',
+  description: 'Notes, ideas and useful things from coderiff.',
   robots: {
     index: blogListRobots?.index && currentPage === 1,
     follow: blogListRobots?.follow,
-  },
-  openGraph: {
-    type: 'blog',
   },
 };
 ---
@@ -54,7 +51,7 @@ const metadata = {
   </Fragment>
   <Breadcrumbs bar items={breadcrumbs} />
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <Headline subtitle="Notes, ideas and useful things from the CodeRiff studio.">The Blog</Headline>
+    <Headline subtitle="Notes, ideas and useful things from coderiff.">The Blog</Headline>
     <BlogSearch posts={allPosts} />
     {allCategories.length > 0 && <PostTags tags={allCategories} class="mb-2" title="Categories:" isCategory />}
     {allTags.length > 0 && <PostTags tags={allTags} title="Topics:" />}

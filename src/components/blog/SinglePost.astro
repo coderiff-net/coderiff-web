@@ -43,7 +43,18 @@ const { post, url } = Astro.props;
               <>
                 {' '}
                 · <Icon name="tabler:user" class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400" />
-                <span class="inline-block">{post.author}</span>
+                {post.author === 'Diego Martin' ? (
+                  <a
+                    class="inline-block underline decoration-primary/40 underline-offset-2 hover:text-primary"
+                    href="https://diego.coderiff.net"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {post.author}
+                  </a>
+                ) : (
+                  <span class="inline-block">{post.author}</span>
+                )}
               </>
             )
           }

@@ -4,7 +4,7 @@ import SiteSearch from '~/components/common/SiteSearch.astro';
 import { getBlogPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'CodeRiff - Independent software engineering',
+  title: 'coderiff - Independent software engineering',
   description: 'Based in Málaga. Working worldwide.',
 };
 ---
@@ -69,8 +69,17 @@ const metadata = {
       <div>
         <h2 class="text-3xl font-bold tracking-tight text-heading sm:text-4xl">
           More than 20 years building software.
-        </h2><p class="mt-6 max-w-3xl text-lg leading-relaxed text-muted dark:text-slate-300">
-          CodeRiff is an independent software engineering endeavour based in Málaga, Spain, backed by more than two
+        </h2>
+        <p class="mt-6 max-w-3xl text-lg leading-relaxed text-muted dark:text-slate-300">
+          CodeRiff is led by <a
+            class="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
+            href="https://diego.coderiff.net"
+            target="_blank"
+            rel="noreferrer">Diego Martin</a
+          >.
+        </p>
+        <p class="mt-6 max-w-3xl text-lg leading-relaxed text-muted dark:text-slate-300">
+          coderiff is an independent software engineering endeavour based in Málaga, Spain, backed by more than two
           decades of experience developing and engineering software.
         </p>
         <p class="mt-6 max-w-3xl text-lg leading-relaxed text-muted dark:text-slate-300">
@@ -84,6 +93,14 @@ const metadata = {
         <p class="mt-6 max-w-3xl text-lg leading-relaxed text-muted dark:text-slate-300">
           The goal is software that solves the right problem, is understandable by the people working with it, and can
           continue evolving for years to come Based in the Costa del Sol. Remote by design. Working worldwide.
+        </p>
+        <p class="mt-6 max-w-3xl text-lg leading-relaxed text-muted dark:text-slate-300">
+          For more about my experience, <a
+            class="font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
+            href="/diego-martin"
+            target="_blank"
+            rel="noreferrer">view my CV</a
+          >.
         </p>
       </div>
     </div>
@@ -139,7 +156,7 @@ const metadata = {
       action={`https://formsubmit.co/${import.meta.env.PUBLIC_FORMSUBMIT_TOKEN ?? ''}`}
       class="mt-8 grid max-w-xl gap-4"
     >
-      <input type="hidden" name="_subject" value="New CodeRiff website enquiry" />
+      <input type="hidden" name="_subject" value="New coderiff website enquiry" />
       <input type="hidden" name="_template" value="table" />
       <input type="hidden" name="_next" value="https://coderiff.net/?contact=sent#contact" />
       <input type="hidden" name="_url" value="https://coderiff.net/" />

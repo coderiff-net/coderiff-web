@@ -77,7 +77,18 @@ const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : 
               <>
                 {' '}
                 · <Icon name="tabler:user" class="w-3.5 h-3.5 inline-block -mt-0.5 dark:text-gray-400" />
-                <span>{post.author.replaceAll('-', ' ')}</span>
+                {post.author.replaceAll('-', ' ') === 'Diego Martin' ? (
+                  <a
+                    class="underline decoration-primary/40 underline-offset-2 hover:text-primary"
+                    href="https://diego.coderiff.net"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Diego Martin
+                  </a>
+                ) : (
+                  <span>{post.author.replaceAll('-', ' ')}</span>
+                )}
               </>
             )
           }

@@ -1,0 +1,246 @@
+---
+const title = 'Diego Martin — Software Engineering Lead';
+const description =
+  'Software engineering leader based in Málaga, Spain, with more than 20 years of experience building software systems.';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f5f3ee" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #17211f;
+        --muted: #64716c;
+        --line: #d9ded8;
+        --green: #216454;
+        --paper: #f5f3ee;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: 'Manrope', sans-serif;
+      }
+      a {
+        color: inherit;
+      }
+      .page {
+        width: min(1100px, calc(100% - 48px));
+        margin: auto;
+      }
+      .topline {
+        padding: 28px 0;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font:
+          12px 'DM Mono',
+          monospace;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .topline a {
+        text-decoration: none;
+      }
+      .hero {
+        padding: 88px 0 76px;
+        display: grid;
+        grid-template-columns: 1fr 250px;
+        gap: 50px;
+        align-items: end;
+      }
+      .eyebrow,
+      .label {
+        color: var(--green);
+        font:
+          12px 'DM Mono',
+          monospace;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        max-width: 780px;
+        margin: 18px 0 20px;
+        font-size: clamp(52px, 8vw, 92px);
+        letter-spacing: -0.075em;
+        line-height: 0.98;
+      }
+      .intro {
+        max-width: 660px;
+        font-size: 18px;
+        line-height: 1.75;
+        color: #495650;
+      }
+      .card {
+        border: 1px solid var(--line);
+        padding: 22px;
+        background: rgba(255, 255, 255, 0.4);
+      }
+      .card p {
+        margin: 0 0 14px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .card strong {
+        display: block;
+        font-size: 17px;
+      }
+      .action {
+        display: inline-flex;
+        margin-top: 12px;
+        padding: 13px 17px;
+        background: var(--green);
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .content {
+        border-top: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 48px;
+        padding: 42px 0;
+      }
+      h2 {
+        margin: 0 0 16px;
+        font-size: 22px;
+        letter-spacing: -0.04em;
+      }
+      .content p {
+        margin: 0;
+        max-width: 700px;
+        color: #495650;
+        line-height: 1.8;
+      }
+      .tags {
+        margin-top: 22px;
+        display: flex;
+        gap: 9px;
+        flex-wrap: wrap;
+      }
+      .tags span {
+        padding: 9px 12px;
+        border: 1px solid var(--line);
+        color: #43534c;
+        font-size: 12px;
+      }
+      .footer {
+        border-top: 1px solid var(--line);
+        padding: 24px 0 40px;
+        display: flex;
+        justify-content: space-between;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      @media (max-width: 680px) {
+        .page {
+          width: min(100% - 36px, 1100px);
+        }
+        .hero {
+          padding: 58px 0;
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        .content {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .topline {
+          padding: 20px 0;
+        }
+        .footer {
+          gap: 12px;
+          flex-direction: column;
+        }
+      }
+      @media print {
+        body {
+          background: white;
+        }
+        .page {
+          width: 100%;
+        }
+        .action {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="topline">
+        <a href="https://coderiff.net">CodeRiff</a><span>Curriculum vitae · Málaga, Spain</span>
+      </header>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Software engineering · Technical leadership</p>
+          <h1>Diego<br />Martin<span style="color:var(--green)">.</span></h1>
+          <p class="intro">
+            Software engineering leader with more than 20 years of hands-on experience designing, building and evolving
+            software systems. I work across architecture and delivery, helping teams solve the right problem and build
+            software that can keep changing with the business.
+          </p>
+        </div>
+        <aside class="card">
+          <p>Based in</p><strong>Málaga, Spain</strong>
+          <p style="margin-top:20px">Working style</p><strong>Remote · Worldwide</strong>
+          <a class="action" href="https://coderiff.net/#contact">Get in touch ↗</a>
+        </aside>
+      </section>
+      <section class="content">
+        <p class="label">01 / Profile</p>
+        <div>
+          <h2>Experience grounded in delivery.</h2><p>
+            My work spans software engineering, architecture and technical consulting, with a focus on the .NET
+            ecosystem and information systems. I bring practical experience to complex systems: understanding the
+            domain, making sound design choices, and supporting teams as they deliver and evolve software.
+          </p>
+        </div>
+      </section>
+      <section class="content">
+        <p class="label">02 / Focus</p>
+        <div>
+          <h2>Architecture that serves the problem.</h2><p>
+            Designing systems that are understandable, resilient and able to evolve. I use architectural patterns when
+            they help address real constraints and business needs.
+          </p><div class="tags">
+            <span>.NET & C#</span><span>Software architecture</span><span>Event Sourcing</span><span>CQRS</span><span
+              >Event-driven systems</span
+            ><span>Technical leadership</span><span>System integration</span>
+          </div>
+        </div>
+      </section>
+      <section class="content">
+        <p class="label">03 / Approach</p>
+        <div>
+          <h2>Understand first. Build with intent.</h2><p>
+            Good engineering starts with understanding the problem. The goal is software that solves the right problem,
+            makes sense to the people working with it, and can continue evolving for years to come.
+          </p>
+        </div>
+      </section>
+      <footer class="footer">
+        <span>Diego Martin · Software Engineering Lead</span><a href="https://coderiff.net/#contact"
+          >Contact via CodeRiff ↗</a>
+      </footer>
+    </main>
+  </body>
+</html>
