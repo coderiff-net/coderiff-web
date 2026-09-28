@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: CodeRiff — thoughtful websites, built with care
-    template: '%s - CodeRiff'
-  description: 'CodeRiff designs and builds clear, fast websites for people with something worth sharing.'
+    default: coderiff — thoughtful websites, built with care
+    template: '%s - coderiff'
+  description: 'coderiff designs and builds clear, fast websites for people with something worth sharing.'
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: CodeRiff
+    site_name: coderiff
     images:
       - url: '~/assets/images/default.png'
         width: 1200
