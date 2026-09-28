@@ -1,10 +1,10 @@
 ---
 publishDate: 2026-09-27T00:00:00Z
 author: Diego Martin
-title: "Understand the problem before designing the solution"
-excerpt: "Event Storming, strategic DDD, and vertical slices help teams build a shared model before AI makes it easier to build the wrong thing faster."
-image: "~/assets/images/hero-image.png"
-imageAlt: "Blue, pink, and orange ink clouds blending into a dark background"
+title: 'Understand the problem before designing the solution'
+excerpt: 'Event Storming, strategic DDD, and vertical slices help teams build a shared model before AI makes it easier to build the wrong thing faster.'
+image: '~/assets/images/hero-image.png'
+imageAlt: 'Blue, pink, and orange ink clouds blending into a dark background'
 category: engineering
 tags:
   - software-design

@@ -1,8 +1,8 @@
 ---
 publishDate: 2024-09-27T00:00:00Z
 author: Diego Martin
-title: "Requiring MFA for traditional AWS IAM users"
-excerpt: "A policy pattern for restricting IAM user access until MFA is configured, with important limits to understand before applying it."
+title: 'Requiring MFA for traditional AWS IAM users'
+excerpt: 'A policy pattern for restricting IAM user access until MFA is configured, with important limits to understand before applying it.'
 category: tutorials
 tags:
   - aws
