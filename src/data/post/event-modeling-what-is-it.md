@@ -106,11 +106,9 @@ How the processor wakes up is a separate implementation concern. An arriving eve
 
 ## The TODO list pattern: waiting for products to arrive
 
-Suppose order `W-1042` needs one keyboard, one mouse, and one monitor. For this example, each arrival is associated with this order, and received products are allocated to it. We assume payment, packing, and other shipment prerequisites are already satisfied so we can focus on the arrival condition.
+Suppose order `W-1042` needs one keyboard, one mouse, and one monitor. Each product arrival is associated with this order, and received products are allocated to it. For this example, all other shipment prerequisites are already satisfied.
 
-The products can arrive in any sequence. A monitor arriving first should not cause shipment, and neither should receiving two notifications about the same keyboard. Readiness depends on the expected products and quantities being available for this order.
-
-A view makes that distinction visible:
+The products can arrive in any sequence. The automation needs a view that tracks what the order expects, what has arrived, and whether shipment is still pending:
 
 | Information received                            | Products still outstanding | Decision                 |
 | ----------------------------------------------- | -------------------------- | ------------------------ |
@@ -120,27 +118,17 @@ A view makes that distinction visible:
 | Mouse arrived                                   | None; shipment pending     | Send `Ship Order`        |
 | Order shipped                                   | None; shipment complete    | No shipment work remains |
 
-Keyboard, mouse, monitor would lead to the same readiness state as monitor, keyboard, mouse. The decision depends on what has arrived, not on which product happened to arrive last.
+This is the **processor–TODO list pattern**: a view represents outstanding work, a processor sends commands for eligible work, and the resulting events update the view to mark that work as completed.
 
-This fits the **processor–TODO list pattern**. A view represents outstanding work, a processor issues commands for eligible work, and the resulting events update the view to mark that work as done. Martin Major explores another example in [Learning Event Modeling: Processor-TODO-List pattern](https://www.linkedin.com/pulse/learning-event-modeling-processor-todo-list-pattern-martin-major-8b26c/).
+Here, the TODO list contains orders awaiting shipment, including their missing products and quantities. Whichever product arrives last, the decision is the same: once all requirements are satisfied, issue `Ship Order`. The task remains outstanding until `Order Shipped` confirms completion.
 
-Our TODO list contains orders awaiting shipment. Each entry tracks its expected products and the arrivals allocated to it. An order becomes eligible for `Ship Order` when none of its required quantities are missing. `Order Shipped` then removes that order from the outstanding shipment work.
+### Why I no longer reach for sagas
 
-The flow is:
+Since adopting this pattern, I haven't needed a separate saga implementation in a long time. For workflows like this, the view holds the accumulated process state, and the processor decides what work is ready. That combination provides the coordination I previously would have put into a saga or process manager.
 
-1. `Order Fulfillment Requested` establishes the order's expected products and quantities.
-2. `Product Arrived` facts update the view as products arrive, in any sequence.
-3. The processor observes that every required product is available and shipment is pending, then sends `Ship Order`.
-4. The command handler validates the request and, when shipment succeeds, records `Order Shipped`.
-5. The view marks the shipment task as complete.
+The outstanding work is also directly inspectable. If processing stops, a durable TODO view still shows what remains to be done. The processor can resume by checking eligible work again, provided repeated commands are handled safely.
 
-Issuing the command alone does not check off the task: the outcome establishes that the work is done. If shipment involves further physical steps or an external carrier, those steps and their outcomes can be modeled explicitly too.
-
-Drawing only `Product Arrived → Processor → Ship Order` would hide the expected product list and the accumulated arrivals. The view explains why one arrival leads to waiting while another makes the order ready.
-
-This also gives operations useful information: which orders are waiting, which products are missing, and which ready orders have not yet shipped. A person and a processor can use the same conceptual view.
-
-The model still leaves implementation work to do. Duplicate arrival notifications must not increase available quantities twice, products must not be allocated to multiple orders, and concurrent processors must not cause duplicate shipments. Cancellations, damaged products, partial deliveries, and partial shipment policies deserve their own scenarios. The model helps identify these questions and express the agreed behavior.
+This makes a separate saga unnecessary **for this coordination problem**. More complex workflows may still require deadlines, cancellations, or compensating actions, which are the concerns addressed by the **Saga pattern**. Those requirements still need explicit modeling, whether implemented through TODO views and processors or a dedicated saga mechanism.
 
 ## From an event model to vertical slices
 
@@ -170,8 +158,36 @@ That combination gives the AI a defined behavior to implement, a repeatable way 
 
 A diagram with names alone will leave substantial gaps. The team still needs to specify rules, data, exceptions, and operational constraints. The value comes from making those decisions explicit enough that both people and tools can work from them.
 
-## Why I use it
+## Acceptance criteria with Given–When–Then
+
+An event model shows how information flows through a system. **Given–When–Then** makes the expected behavior of a specific slice precise through concrete examples:
+
+- **Given** the relevant facts or starting state.
+- **When** a command is issued.
+- **Then** the expected outcome occurs, expressed as resulting events or a rejection.
+
+These scenarios belong alongside the command they specify. They give business experts, developers, and testers concrete acceptance criteria to review together, as described in the [Event Modeling introduction](https://eventmodeling.org/posts/what-is-event-modeling/#commands).
+
+For the `Ship Order` slice, assuming all other shipment prerequisites are satisfied:
+
+| Given                                                                                                                 | When                   | Then                                                                                                |
+| --------------------------------------------------------------------------------------------------------------------- | ---------------------- | --------------------------------------------------------------------------------------------------- |
+| Order `W-1042` requires a keyboard, mouse, and monitor; all have arrived and are allocated to it; shipment is pending | `Ship Order` is issued | Shipment succeeds and `Order Shipped` is recorded                                                   |
+| The same order is still missing its mouse                                                                             | `Ship Order` is issued | The command is rejected because required products are missing; no `Order Shipped` event is recorded |
+
+The second scenario matters even when automation normally waits for every product. The command handler must enforce its rules regardless of who sends the command.
+
+Views can be specified using **Given–Then**: given certain events, what information should the view contain? For example:
+
+> **Given** fulfillment was requested for a keyboard, mouse, and monitor, and the monitor and keyboard have arrived,  
+> **Then** `Orders Awaiting Products` shows only the mouse as outstanding for that order.
+
+The processor’s decision can be checked separately: given that the view shows no missing products and shipment is pending, evaluating that entry should produce `Ship Order`.
+
+Each example establishes a clear boundary: how a view represents facts, how a processor decides to act, or how a command changes the system. These acceptance criteria can then guide automated tests and AI-assisted implementation of the slice.
+
+## Why I use Event Modeling
 
 What I particularly appreciate about Event Modeling is how it connects a business conversation to implementation. The same model helps explain why a warehouse order must wait, identify the information needed to release it, and define a slice that delivers that behavior.
 
-It gives the team something concrete to question and improve together. Once that shared understanding exists, choosing implementation mechanisms—and using AI to help build them—becomes a much more focused task.
+It gives the team something concrete to question and improve together. Once that shared understanding exists, choosing implementation mechanisms and using AI to help build them becomes a much more focused task.
