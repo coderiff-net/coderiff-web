@@ -1,0 +1,145 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<heading-links>
+  <slot />
+  <template data-section-link-template>
+    <a class="section-link" data-section-link>
+      <Icon name="tabler:link" class="section-link-icon" />
+      <span class="section-link-feedback" aria-hidden="true">Copied!</span>
+    </a>
+  </template>
+  <span class="sr-only" role="status" aria-live="polite" data-section-link-status></span>
+</heading-links>
+
+<script>
+  class HeadingLinks extends HTMLElement {
+    private resetTimer?: number;
+
+    connectedCallback() {
+      const template = this.querySelector<HTMLTemplateElement>('[data-section-link-template]');
+      if (!template) return;
+
+      this.querySelectorAll<HTMLElement>('h2[id], h3[id], h4[id]').forEach((heading) => {
+        if (heading.querySelector('[data-section-link]')) return;
+        const link = template.content.firstElementChild?.cloneNode(true) as HTMLAnchorElement;
+        const label = `Copy link to ${heading.textContent?.trim()}`;
+        link.href = `#${encodeURIComponent(heading.id)}`;
+        link.title = label;
+        link.setAttribute('aria-label', label);
+        heading.append(link);
+      });
+
+      this.addEventListener('click', this.copyLink);
+    }
+
+    disconnectedCallback() {
+      this.removeEventListener('click', this.copyLink);
+      window.clearTimeout(this.resetTimer);
+    }
+
+    private copyLink = async (event: MouseEvent) => {
+      const link =
+        event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('[data-section-link]') : null;
+      if (!link || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (!navigator.clipboard) return;
+      event.preventDefault();
+
+      const url = new URL(window.location.href);
+      url.search = '';
+      url.hash = link.hash;
+      const status = this.querySelector<HTMLElement>('[data-section-link-status]');
+
+      try {
+        await navigator.clipboard.writeText(url.href);
+        this.querySelectorAll('[data-copied]').forEach((el) => el.removeAttribute('data-copied'));
+        link.setAttribute('data-copied', '');
+        if (status) status.textContent = 'Section link copied to clipboard.';
+        window.clearTimeout(this.resetTimer);
+        this.resetTimer = window.setTimeout(() => {
+          link.removeAttribute('data-copied');
+          if (status) status.textContent = '';
+        }, 2000);
+      } catch {
+        // Keep a usable section URL when clipboard access is unavailable.
+        window.location.hash = link.hash;
+        if (status) status.textContent = 'Copy the section link from your address bar.';
+      }
+    };
+  }
+
+  if (!customElements.get('heading-links')) customElements.define('heading-links', HeadingLinks);
+</script>
+
+<style is:global>
+  heading-links {
+    display: block;
+  }
+
+  heading-links :where(h2, h3, h4)[id] {
+    scroll-margin-top: 6rem;
+  }
+
+  heading-links .section-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin-inline-start: 0.3em;
+    vertical-align: middle;
+    border-radius: 0.25rem;
+    color: var(--aw-color-text-muted);
+    text-decoration: none;
+    opacity: 0;
+  }
+
+  heading-links :where(h2, h3, h4):hover .section-link,
+  heading-links :where(h2, h3, h4):focus-within .section-link,
+  heading-links .section-link[data-copied] {
+    opacity: 1;
+  }
+
+  heading-links .section-link:hover,
+  heading-links .section-link:focus-visible {
+    color: var(--aw-color-primary);
+    background: color-mix(in srgb, currentColor 10%, transparent);
+  }
+
+  heading-links .section-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  heading-links .section-link-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  heading-links .section-link-feedback {
+    display: none;
+    position: absolute;
+    inset-block-end: calc(100% + 0.25rem);
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.25rem;
+    background: var(--aw-color-text-default);
+    color: var(--aw-color-bg-page);
+    font: 500 0.75rem/1.4 var(--aw-font-sans, sans-serif);
+    letter-spacing: normal;
+    white-space: nowrap;
+  }
+
+  heading-links .section-link[data-copied] .section-link-feedback {
+    display: block;
+  }
+
+  @media (hover: none) {
+    heading-links .section-link {
+      opacity: 1;
+    }
+  }
+</style>
