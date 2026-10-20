@@ -94,9 +94,10 @@ const { post, url } = Astro.props;
         post.image ? (
           <Image
             src={post.image}
+            style={post.imageFit === 'contain' ? 'object-fit:contain;background-color:#faf9f6' : undefined}
             class="max-w-full lg:max-w-[900px] mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
-            widths={[400, 900]}
-            sizes="(max-width: 900px) 400px, 900px"
+            widths={[400, 640, 900, 1600]}
+            sizes="(max-width: 900px) 100vw, 900px"
             alt={post.imageAlt || ''}
             width={900}
             height={506}

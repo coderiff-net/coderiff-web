@@ -3,8 +3,9 @@ publishDate: 2026-10-20T00:00:00Z
 author: Diego Martin
 title: 'Event Modeling: a shared blueprint for building software'
 excerpt: 'An introduction to Event Modeling, its elements and patterns, and how it connects business decisions to automation, vertical slices, and AI-assisted development.'
-image: '~/assets/images/coderiff-event-modeling.jpg'
-imageAlt: 'Event modeling mock with UI, commands, events, views and processor automations'
+image: '~/assets/images/coderiff-event-modeling.png'
+imageAlt: 'Event Modeling diagram with blue commands, orange events, green views, user interfaces, an automation gear, and the coderiff logo'
+imageFit: contain
 category: engineering
 tags:
   - software-design
@@ -77,9 +78,11 @@ A processor observes a view and sends a command when the relevant conditions are
 
 ### Translation
 
-Information from another system or context is translated into our own language. A supplier's delivery notification might provide the information needed to issue `Record Product Arrival`, which can then produce `Product Arrived` in the warehouse's model.
+Translation brings information from another system or context into our domain's language. A supplier's delivery notification might lead to a `Record Product Arrival` command, which, if accepted, produces `Product Arrived` in the warehouse's model. This translation acts as an **Anti-Corruption Layer (ACL)**, protecting our model from the supplier's terminology and representation.
 
-The supplier's terminology and message format do not have to become the warehouse's terminology. The [Event Modeling HCL patterns guide](https://event-modeling-hcl.github.io/learn/patterns.html) explores these four patterns further.
+Sometimes, however, we only need external information to support a decision or validation. We might maintain a local view of a supplier's product catalog, for example. Updating that view is also projection: it keeps a local representation of information owned elsewhere, without necessarily initiating a business operation in our domain. The supplier remains the source of truth. Reading from it directly or maintaining an eventually consistent cache is an implementation choice, although the acceptable freshness of that information must be part of the decision rules.
+
+The [Event Modeling HCL patterns guide](https://event-modeling-hcl.github.io/learn/patterns.html) explores these four patterns further.
 
 ## A view is conceptual
 

@@ -17,6 +17,10 @@ export interface Props {
 
 const { post } = Astro.props;
 const image = (await findImage(post.image)) as ImageMetadata | undefined;
+const imageFrameClass =
+  post.imageFit === 'contain'
+    ? 'relative aspect-video overflow-hidden bg-[#faf9f6] rounded shadow-lg'
+    : 'relative h-0 pb-[56.25%] md:pb-[75%] md:h-72 lg:pb-[56.25%] overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg';
 
 const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : '';
 ---
@@ -28,16 +32,18 @@ const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : 
     image &&
       (link ? (
         <a class="relative block group" href={link}>
-          <div class="relative h-0 pb-[56.25%] md:pb-[75%] md:h-72 lg:pb-[56.25%] overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg">
+          <div class={imageFrameClass}>
             {image && (
               <Image
                 src={image}
+                layout={post.imageFit === 'contain' ? 'none' : 'constrained'}
+                style={post.imageFit === 'contain' ? 'object-fit:contain;background-color:#faf9f6' : undefined}
                 class="absolute inset-0 object-cover w-full h-full mb-6 rounded shadow-lg bg-gray-400 dark:bg-slate-700"
                 widths={[400, 900]}
                 width={900}
                 height={506}
                 sizes="(max-width: 900px) 400px, 900px"
-                alt={post.title}
+                alt={post.imageAlt || post.title}
                 format="webp"
                 loading="lazy"
                 decoding="async"
@@ -46,16 +52,18 @@ const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : 
           </div>
         </a>
       ) : (
-        <div class="relative h-0 pb-[56.25%] md:pb-[75%] md:h-72 lg:pb-[56.25%] overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg">
+        <div class={imageFrameClass}>
           {image && (
             <Image
               src={image}
+              layout={post.imageFit === 'contain' ? 'none' : 'constrained'}
+              style={post.imageFit === 'contain' ? 'object-fit:contain;background-color:#faf9f6' : undefined}
               class="absolute inset-0 object-cover w-full h-full mb-6 rounded shadow-lg bg-gray-400 dark:bg-slate-700"
               widths={[400, 900]}
               width={900}
               height={506}
               sizes="(max-width: 900px) 400px, 900px"
-              alt={post.title}
+              alt={post.imageAlt || post.title}
               format="webp"
               loading="lazy"
               decoding="async"

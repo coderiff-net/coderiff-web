@@ -19,6 +19,8 @@ export interface Post {
   image?: ImageMetadata | string;
   /** Alternative text for the cover image. */
   imageAlt?: string;
+  /** Use contain for artwork whose text and branding must remain visible. */
+  imageFit?: 'cover' | 'contain';
 
   category?: Taxonomy;
   tags?: Taxonomy[];
