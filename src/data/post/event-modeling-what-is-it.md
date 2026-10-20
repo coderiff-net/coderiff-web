@@ -96,7 +96,7 @@ Views also serve automated processes. Information does not need to appear on a s
 
 ## Automation makes decisions from state
 
-A common question is whether automation reacts to a view or directly to an event. **In the event model, there must always be a view (the green sticky) between the events and the processor automation. That view makes explicit the information the processor automation needs to decide whether to send a command.
+A common question is whether automation reacts to a view or directly to an event. **In the event model, there must always be a view (the green sticky)** between the events and the processor automation. That view makes explicit the information the processor automation needs to decide whether to send a command.
 
 The view may contain information from one event or combine facts from several. For example, deciding to ship an order requires knowing which products are expected, which have arrived, and whether shipment is still pending. Connecting `Product Arrived` directly to the processor would leave that decision state unexplained.
 
