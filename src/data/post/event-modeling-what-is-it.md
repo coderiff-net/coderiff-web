@@ -96,15 +96,13 @@ Views also serve automated processes. Information does not need to appear on a s
 
 ## Automation makes decisions from state
 
-A common question is whether automation must be triggered by a view or can react directly to an event.
+A common question is whether automation reacts to a view or directly to an event. **In the event model, there must always be a view (the green sticky) between the events and the processor automation. That view makes explicit the information the processor automation needs to decide whether to send a command.
 
-The useful distinction is between **what wakes the processor** and **what justifies its decision**. An event subscription, a scheduled job, or a change notification might prompt the processor to run. That mechanism is an implementation detail. In the event model, we want to describe the information that makes an action appropriate.
+The view may contain information from one event or combine facts from several. For example, deciding to ship an order requires knowing which products are expected, which have arrived, and whether shipment is still pending. Connecting `Product Arrived` directly to the processor would leave that decision state unexplained.
 
-One way I find helpful to explain this is to imagine hiring someone to watch a UI and press a button when the information calls for it. We tell them: "Here are the products this order requires, and here is what has arrived. When everything is available, press Ship Order."
+One analogy I find helpful is to imagine hiring someone to watch a UI and press a button when the information calls for it: _“Here are the products this order requires, and here is what has arrived. When everything is available, press Ship Order”_. The view supplies the information; the processor takes the person's role. No actual screen is required.
 
-An automation performs that role without requiring an actual screen. Like a person using a UI, it acts on the state it can observe. An HTTP response may update a screen, but the person makes a decision from the information shown. Similarly, an event may wake a processor, while the view explains why it should act.
-
-Sometimes one event supplies all the information needed, and a direct event handler is a reasonable implementation. Other decisions depend on information accumulated from several events. **The automation pattern makes that decision state explicit, independently of how the processor is triggered.**
+How the processor wakes up is a separate implementation concern. An arriving event might wake it, or a scheduled job might run it every five seconds. Neither changes what we represent in the model: the processor observes a view and issues a command when the state shown there calls for action. Even when a single event supplies all the necessary information, the green sticky remains explicit.
 
 ## The TODO list pattern: waiting for products to arrive
 
