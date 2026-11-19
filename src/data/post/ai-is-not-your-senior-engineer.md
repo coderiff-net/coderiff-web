@@ -16,7 +16,7 @@ LLMs are good at many things. They are especially good at making a guess look li
 
 Give one a plausible request and it will produce code, tests, documentation, a confident explanation, and sometimes a tiny victory lap. That fluency is useful. It is also dangerous. **An LLM can make you feel like you understand a system before you have discovered what the system is.**
 
-I have started thinking of them as *Dunning–Kruger factories*: machines that can manufacture the feeling of competence at industrial speed. I mean that as a provocation, not as a psychological diagnosis of a language model. The practical point is simpler: the less you know about a domain, the harder it is to notice what the model has missed—and the more persuasive its answer can feel.
+I have started thinking of them as *Dunning-Kruger factories*: machines that can manufacture the feeling of competence at industrial speed. I mean that as a provocation, not as a psychological diagnosis of a language model. The practical point is simpler: the less you know about a domain, the harder it is to notice what the model has missed, and the more persuasive its answer can feel.
 
 The real danger is not that the machine will write an obviously foolish function. It is that it will write a plausible one, for a plausible interpretation of a problem, inside a system whose most important constraints were never stated.
 
@@ -40,7 +40,7 @@ AI has lowered the barrier between “I have an idea” and “I have something 
 
 But a prototype is not a proof of understanding. It is a hypothesis with a user interface.
 
-Some newly empowered experts—let us call them *visionary platform strategists* when they have booked the conference room—have taken the next step: perhaps the inconvenient engineers, with their expensive salaries and awkward questions, can be removed from the process altogether. Surely the model can turn the requirements into production software. How hard can it be?
+Some newly empowered experts, let us call them *visionary platform strategists* when they have booked the conference room, have taken the next step: perhaps the inconvenient engineers, with their expensive salaries and awkward questions, can be removed from the process altogether. Surely the model can turn the requirements into production software. How hard can it be?
 
 That question is usually asked before anyone has had to operate the result.
 
@@ -62,11 +62,11 @@ That can feel like acceleration. More commits, more pull requests, more features
 
 A recent [working paper by Fiona Chen and James Stratton](https://fion.ac/jellyfish.pdf), *Artificial Intelligence in the Firm: Bottlenecks in Software Production*, analyzes 445 million work events across 655 firms. The authors report that AI adoption substantially increases code output, with a smaller effect on completed software output; they also find that code review becomes a bottleneck. In their sample, they detect no employment effect from adoption over the period studied. This is not a universal verdict on every team or tool, and the paper is still a working paper. It is, however, a useful challenge to the simplistic equation of more generated code with more shipped software.
 
-The important question is not “How many lines did the model write?” It is “How much useful, verified change reached users—and what did it cost us to get there?”
+The important question is not “How many lines did the model write?” It is “How much useful, verified change reached users, and what did it cost us to get there?”
 
 If review is already a bottleneck, generating more code does not remove it. It may make the pile taller. If reviewers are asked to approve changes they did not shape, in parts of the system they no longer understand, the problem is not just the number of lines. It is the shrinking ability to tell whether those lines belong there at all.
 
-A tempting response is to automate review too and let agents approve agents. That may help with some mechanical checks. But a machine cannot validate an unstated policy or recognize a hidden organizational promise unless we have given it enough context—and know what context matters. Automating the appearance of review is not the same as taking responsibility for a change.
+A tempting response is to automate review too and let agents approve agents. That may help with some mechanical checks. But a machine cannot validate an unstated policy or recognize a hidden organizational promise unless we have given it enough context, and know what context matters. Automating the appearance of review is not the same as taking responsibility for a change.
 
 **The bottleneck is not an inconvenience to eliminate. It is information about where the hard work lives.**
 
@@ -92,7 +92,7 @@ Then users arrive. The system accumulates state. People build workarounds. Anoth
 
 That is why the ability to remove and replace code matters as much as the ability to produce it. In [“The Art of Destroying Software,” Greg Young argues for designing software so parts can be deleted and rewritten without fear](https://www.youtube.com/watch?v=1FPsJ-if2RU). The useful idea is not to destroy things for sport. It is to make change survivable: keep boundaries clear, limit the size of components, and avoid letting a decision become permanent merely because it is expensive to undo.
 
-AI increases the need for that discipline. If generation is cheap, we will generate more experiments, more alternatives, and more code that may later prove unnecessary. We should optimize not only for writing a feature, but for learning that we no longer need it—and removing it cleanly.
+AI increases the need for that discipline. If generation is cheap, we will generate more experiments, more alternatives, and more code that may later prove unnecessary. We should optimize not only for writing a feature, but for learning that we no longer need it, and removing it cleanly.
 
 A system that is easy to change is valuable. A system that is easy to delete is freer still.
 
@@ -110,7 +110,7 @@ A specification is useful when it records what we have learned and gives us some
 
 ## The knowledge we stop practicing will become scarce
 
-There is another risk in delegating more of the thinking. The path matters, not just the artifact at the end. When engineers work through a problem—reading unfamiliar code, tracing a failure, arguing about a model, testing a hypothesis—they build the mental map that lets them notice when the next change is wrong.
+There is another risk in delegating more of the thinking. The path matters, not just the artifact at the end. When engineers work through a problem, reading unfamiliar code, tracing a failure, arguing about a model, testing a hypothesis, they build the mental map that lets them notice when the next change is wrong.
 
 If we hand off every difficult step, we may still get an answer. We may also lose the people who can evaluate it. Verification is not a button that appears automatically once generation gets fast. It is a skill built from fundamentals, experience, and contact with the system.
 
@@ -130,8 +130,9 @@ The skeptics I trust are not the ones who refuse to try AI. They are the ones wh
 
 We need engineers who combine technical judgment with domain knowledge; who can share what they know across teams; who can ask questions that reveal the missing rule; who can distinguish code that works from software that serves a purpose; and who understand that choosing not to build something is also an engineering decision.
 
-Those people will not become less important as code gets easier to produce. **They will become harder to find—and more valuable.**
+Those people will not become less important as code gets easier to produce. **They will become harder to find, and more valuable.**
 
 So yes: use the model. Let it draft, explore, explain, and surprise you. Then read the result. Question its assumptions. Bring it the context it cannot discover on its own. And when it confidently heads in the wrong direction, be willing to say the simplest useful thing an engineer can say:
 
 **Yes, you're wrong.**
+
