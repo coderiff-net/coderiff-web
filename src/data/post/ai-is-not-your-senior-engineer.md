@@ -1,7 +1,7 @@
 ---
 publishDate: 2026-11-19T00:00:00Z
 author: Diego Martin
-title: 'AI Makes Code Cheap. It Does Not Make Software Simple.'
+title: 'AI makes code cheap. It does not make software simple'
 excerpt: 'LLMs can produce code at extraordinary speed. That does not make complex systems less fragile, requirements less ambiguous, or verification less necessary. It makes engineering judgment more valuable.'
 image: '~/assets/images/engineers-can-say-youre-wrong.png'
 imageAlt: 'A bald engineer holding books, a calculator, and a closed notebook calmly challenges an AI robot, with passive citizens connected to other robots in the background'
@@ -12,11 +12,13 @@ tags:
   - software-architecture
 ---
 
+> Also available in Spanish: [La IA abarata el código. El software sigue siendo complejo.](/blog/la-ia-abarata-el-codigo-el-software-sigue-complejo)
+
 LLMs are good at many things. They are especially good at making a guess look like an answer.
 
 Give one a plausible request and it will produce code, tests, documentation, a confident explanation, and sometimes a tiny victory lap. That fluency is useful. It is also dangerous. **An LLM can make you feel like you understand a system before you have discovered what the system is.**
 
-I have started thinking of them as *Dunning-Kruger factories*: machines that can manufacture the feeling of competence at industrial speed. I mean that as a provocation, not as a psychological diagnosis of a language model. The practical point is simpler: the less you know about a domain, the harder it is to notice what the model has missed, and the more persuasive its answer can feel.
+I have started thinking of them as _Dunning-Kruger factories_: machines that can manufacture the feeling of competence at industrial speed. I mean that as a provocation, not as a psychological diagnosis of a language model. The practical point is simpler: the less you know about a domain, the harder it is to notice what the model has missed, and the more persuasive its answer can feel.
 
 The real danger is not that the machine will write an obviously foolish function. It is that it will write a plausible one, for a plausible interpretation of a problem, inside a system whose most important constraints were never stated.
 
@@ -40,7 +42,7 @@ AI has lowered the barrier between “I have an idea” and “I have something 
 
 But a prototype is not a proof of understanding. It is a hypothesis with a user interface.
 
-Some newly empowered experts, let us call them *visionary platform strategists* when they have booked the conference room, have taken the next step: perhaps the inconvenient engineers, with their expensive salaries and awkward questions, can be removed from the process altogether. Surely the model can turn the requirements into production software. How hard can it be?
+Some newly empowered experts, let us call them _visionary platform strategists_ when they have booked the conference room, have taken the next step: perhaps the inconvenient engineers, with their expensive salaries and awkward questions, can be removed from the process altogether. Surely the model can turn the requirements into production software. How hard can it be?
 
 That question is usually asked before anyone has had to operate the result.
 
@@ -60,7 +62,7 @@ The rush to adopt AI is not happening in a vacuum. There is FOMO, genuine excite
 
 That can feel like acceleration. More commits, more pull requests, more features in progress. But throughput at one stage is not throughput for the whole system. If code production gets faster while understanding, integration, testing, and review do not, the queue simply moves.
 
-A recent [working paper by Fiona Chen and James Stratton](https://fion.ac/jellyfish.pdf), *Artificial Intelligence in the Firm: Bottlenecks in Software Production*, analyzes 445 million work events across 655 firms. The authors report that AI adoption substantially increases code output, with a smaller effect on completed software output; they also find that code review becomes a bottleneck. In their sample, they detect no employment effect from adoption over the period studied. This is not a universal verdict on every team or tool, and the paper is still a working paper. It is, however, a useful challenge to the simplistic equation of more generated code with more shipped software.
+A recent [working paper by Fiona Chen and James Stratton](https://fion.ac/jellyfish.pdf), _Artificial Intelligence in the Firm: Bottlenecks in Software Production_, analyzes 445 million work events across 655 firms. The authors report that AI adoption substantially increases code output, with a smaller effect on completed software output; they also find that code review becomes a bottleneck. In their sample, they detect no employment effect from adoption over the period studied. This is not a universal verdict on every team or tool, and the paper is still a working paper. It is, however, a useful challenge to the simplistic equation of more generated code with more shipped software.
 
 The important question is not “How many lines did the model write?” It is “How much useful, verified change reached users, and what did it cost us to get there?”
 
@@ -135,4 +137,3 @@ Those people will not become less important as code gets easier to produce. **Th
 So yes: use the model. Let it draft, explore, explain, and surprise you. Then read the result. Question its assumptions. Bring it the context it cannot discover on its own. And when it confidently heads in the wrong direction, be willing to say the simplest useful thing an engineer can say:
 
 **Yes, you're wrong.**
-
