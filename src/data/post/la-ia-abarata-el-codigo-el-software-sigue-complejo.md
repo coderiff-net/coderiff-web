@@ -18,7 +18,7 @@ Los LLM son buenos en muchas cosas. Se les da especialmente bien hacer que una c
 
 Dales una petición plausible y producirán código, pruebas, documentación, una explicación segura de sí misma y, a veces, hasta una pequeña celebración. Esa fluidez es útil. También es peligrosa. **Un LLM puede hacerte sentir que entiendes un sistema antes de que hayas descubierto qué es realmente ese sistema.**
 
-He empezado a pensar en ellos como *fábricas de Dunning-Kruger*: máquinas capaces de fabricar la sensación de competencia a escala industrial. Lo digo como provocación, no como diagnóstico psicológico de un modelo de lenguaje. La idea práctica es más sencilla: cuanto menos sabes de un dominio, más difícil es detectar lo que el modelo ha pasado por alto y más convincente puede parecer su respuesta.
+He empezado a pensar en ellos como _fábricas de Dunning-Kruger_: máquinas capaces de fabricar la sensación de competencia a escala industrial. Lo digo como provocación, no como diagnóstico psicológico de un modelo de lenguaje. La idea práctica es más sencilla: cuanto menos sabes de un dominio, más difícil es detectar lo que el modelo ha pasado por alto y más convincente puede parecer su respuesta.
 
 El verdadero peligro no es que la máquina escriba una función evidentemente absurda. Es que escriba una función plausible, para una interpretación plausible del problema, dentro de un sistema cuyas restricciones más importantes nunca se mencionaron.
 
@@ -42,7 +42,7 @@ La IA ha reducido la distancia entre "tengo una idea" y "tengo algo que parece s
 
 Pero un prototipo no demuestra que hayamos entendido el problema. Es una hipótesis con interfaz de usuario.
 
-Algunos expertos recién empoderados, a quienes podemos llamar *estrategas visionarios de plataformas* cuando ya han reservado la sala de reuniones, han dado el siguiente paso: quizá podamos prescindir de esos ingenieros incómodos, con sus sueldos elevados y sus preguntas inoportunas. Seguro que el modelo puede convertir los requisitos en software de producción. ¿Tan difícil puede ser?
+Algunos expertos recién empoderados, a quienes podemos llamar _estrategas visionarios de plataformas_ cuando ya han reservado la sala de reuniones, han dado el siguiente paso: quizá podamos prescindir de esos ingenieros incómodos, con sus sueldos elevados y sus preguntas inoportunas. Seguro que el modelo puede convertir los requisitos en software de producción. ¿Tan difícil puede ser?
 
 La pregunta suele aparecer antes de que alguien tenga que operar el resultado.
 
@@ -62,7 +62,7 @@ La carrera por adoptar IA no ocurre en el vacío. Hay FOMO, entusiasmo genuino, 
 
 Eso puede dar sensación de aceleración. Más commits, más pull requests, más funcionalidades en curso. Pero el rendimiento de una fase no equivale al rendimiento del sistema completo. Si producir código se acelera mientras la comprensión, la integración, las pruebas y la revisión siguen igual, la cola simplemente se desplaza.
 
-Un [artículo de investigación en curso de Fiona Chen y James Stratton](https://fion.ac/jellyfish.pdf), *Artificial Intelligence in the Firm: Bottlenecks in Software Production*, analiza 445 millones de eventos de trabajo en 655 empresas. Los autores informan que la adopción de IA aumenta sustancialmente la producción de código, con un efecto menor en el software completado, y encuentran que la revisión de código se convierte en un cuello de botella. En su muestra no detectan un efecto en el empleo durante el periodo estudiado. No es una conclusión universal sobre todos los equipos o herramientas, y el documento sigue siendo un artículo de investigación en curso. Aun así, cuestiona de forma útil la ecuación simplista de más código generado igual a más software entregado.
+Un [artículo de investigación en curso de Fiona Chen y James Stratton](https://fion.ac/jellyfish.pdf), _Artificial Intelligence in the Firm: Bottlenecks in Software Production_, analiza 445 millones de eventos de trabajo en 655 empresas. Los autores informan que la adopción de IA aumenta sustancialmente la producción de código, con un efecto menor en el software completado, y encuentran que la revisión de código se convierte en un cuello de botella. En su muestra no detectan un efecto en el empleo durante el periodo estudiado. No es una conclusión universal sobre todos los equipos o herramientas, y el documento sigue siendo un artículo de investigación en curso. Aun así, cuestiona de forma útil la ecuación simplista de más código generado igual a más software entregado.
 
 La pregunta importante no es "¿cuántas líneas escribió el modelo?". Es "¿cuánto cambio útil y verificado llegó a los usuarios, y cuánto nos costó conseguirlo?".
 
